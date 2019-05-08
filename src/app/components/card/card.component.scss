@@ -1,0 +1,40 @@
+.small-12 {
+  width: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+p {
+  padding-left: .9375rem;
+  padding-right: .9375rem;
+}
+
+@media only screen and (min-width: 40.063em) {
+  .medium-6 {
+    width: 50%;
+  }
+}
+
+@media only screen and (min-width: 64.063em) {
+  .large-4 {
+    width: 33.33333%;
+  }
+}
+
+.card {
+  margin: 0 0 1.25rem 0;
+}
+
+@media only screen and (min-width: 40.063em) {
+  .card {
+    margin-bottom: 1.875rem;
+  }
+}
+
+@media only screen and (min-width: 64.063em) {
+  .card {
+    margin-bottom: 3.75rem;
+  }
+}

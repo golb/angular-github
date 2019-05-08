@@ -1,0 +1,27 @@
+<mat-card class="small-12 medium-6 large-4 card" *ngFor="let repo of repos; trackBy: trackByItems">
+    <mat-card-header>
+        <a *ngIf="!isDetails; else elseBlock" [routerLink]="['/repo', repo.owner, repo.name]" [state]="repo">
+          <img mat-card-avatar [src]="repo.avatar">
+          <mat-card-title>{{repo.name}}</mat-card-title>
+          <mat-card-subtitle>{{repo.language}}</mat-card-subtitle>
+        </a>
+        <ng-template #elseBlock>
+            <img mat-card-avatar [src]="repo.avatar">
+            <mat-card-title>{{repo.name}}</mat-card-title>
+            <mat-card-subtitle>{{repo.language}}</mat-card-subtitle>
+        </ng-template>       
+    </mat-card-header>
+
+    <mat-card-content *ngIf="isDetails">
+      <p>Created: {{repo.date | date : 'medium'}}</p>
+      <p>Owner:</p>
+      <ul>
+        <li>{{repo.owner}}</li>
+        <li><a [href]="repo.owner_url">{{repo.owner_url}}</a></li>
+      </ul>
+      <p>{{repo.description}}</p>
+      <p><a [href]="repo.url">{{repo.url}}</a></p> 
+      <p>Size: {{repo.size}}</p>
+      <p>Score: {{repo.score}}</p>         
+    </mat-card-content>
+</mat-card>

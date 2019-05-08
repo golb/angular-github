@@ -1,0 +1,21 @@
+<div class="search">
+  <form class="example-form" [formGroup]='searchForm'>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Search" #search [matAutocomplete]="auto" formControlName="searchControl" (keyup.enter)="onEnter(search.value)" autofocus>
+      </mat-form-field>
+    
+      <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+          <mat-option *ngIf="isLoading" class="is-loading">
+            <mat-spinner diameter="25"></mat-spinner>
+          </mat-option>
+
+          <ng-container *ngIf="!isLoading">
+              <mat-option *ngFor="let repo of filteredRepos" [value]="repo">
+                <span>{{ repo.name }}</span>
+              </mat-option>
+          </ng-container>
+      </mat-autocomplete>
+    </form>
+</div>
+
+<app-card [repos]="repos" class="repos"></app-card>

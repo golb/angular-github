@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+@import '_ress';
+@import '_standartize';
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+body {
+    padding: 40px;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
